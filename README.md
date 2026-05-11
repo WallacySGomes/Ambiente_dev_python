@@ -1,1 +1,3 @@
-# Este Ambiente de desenvolvimento python foi criado para subir projetos pronto para produção, nele foi utilizado Python 3.12.10, Django, PostgreSQL e Docker Compose.
+# Ambiente de desenvolvimento python 
+
+Configuração: Python 3.12.10, Django, PostgreSQL e Docker Compose.
