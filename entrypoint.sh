@@ -15,7 +15,7 @@ python manage.py migrate --noinput
 python manage.py collectstatic --noinput
 
 # Gunicorn server
-exec gunicorn djangoapp.wsgi:application \
+exec gunicorn dossie_caixa.wsgi:application \
     --bind 0.0.0.0:8000 \
     --workers 4 \
     --threads 2 \
