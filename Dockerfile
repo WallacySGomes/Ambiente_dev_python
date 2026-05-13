@@ -16,7 +16,7 @@ RUN apk add --no-cache postgresql-client && \
     python -m venv /venv && \
     /venv/bin/pip install --upgrade pip && \
     /venv/bin/pip install -r /djangoapp/requirements.txt && \
-    adduser --disabled-password --no-create-home duser && \
+    adduser --disabled-password duser && \
     mkdir -p /data/web/static && \
     mkdir -p /data/web/media && \
     chown -R duser:duser /venv && \
