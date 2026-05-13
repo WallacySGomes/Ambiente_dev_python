@@ -1,16 +1,23 @@
 #!/bin/sh
 
-# O shell irá encerrar a execução do script quando um comando falhar
 set -e
 
-while ! nc -z $POSTGRES_HOST $POSTGRES_PORT; do
-  echo "🟡 Waiting for Postgres Database Startup ($POSTGRES_HOST $POSTGRES_PORT) ..."
+# Espera pelo Postgres
+until pg_isready -h "$POSTGRES_HOST" -p "$POSTGRES_PORT" -U "$POSTGRES_USER"; do
+  echo "🟡 Waiting for Postgres Database Startup ($POSTGRES_HOST:$POSTGRES_PORT) ..."
   sleep 2
 done
 
 echo "✅ Postgres Database Started Successfully ($POSTGRES_HOST:$POSTGRES_PORT)"
 
-python manage.py collectstatic --noinput
-python manage.py makemigrations --noinput
+# Executa comandos do Django
+python manage.py makemigrations
 python manage.py migrate --noinput
-python manage.py runserver 0.0.0.0:8000
+python manage.py collectstatic --noinput
+
+# Inicia o Gunicorn em produção
+exec gunicorn djangoapp.wsgi:application \
+    --bind 0.0.0.0:8000 \
+    --workers 4 \
+    --threads 2 \
+    --timeout 120
