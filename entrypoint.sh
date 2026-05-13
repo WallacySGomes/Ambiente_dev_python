@@ -1,15 +1,18 @@
 #!/bin/sh
 set -e
 
-# Espera pelo Postgres
-while ! nc -z "$POSTGRES_HOST" "$POSTGRES_PORT"; do
+# Espera pelo Postgres estar realmente pronto
+until pg_isready -h "$POSTGRES_HOST" -p "$POSTGRES_PORT" -U "$POSTGRES_USER"; do
   echo "🟡 Waiting for Postgres Database Startup ($POSTGRES_HOST:$POSTGRES_PORT) ..."
   sleep 2
 done
 
 echo "✅ Postgres Database Started Successfully ($POSTGRES_HOST:$POSTGRES_PORT)"
 
-# Django tasks
+# Pequeno delay extra para garantir estabilidade
+sleep 5
+
+# Django tasks (em produção não é recomendado rodar makemigrations)
 python manage.py makemigrations
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
