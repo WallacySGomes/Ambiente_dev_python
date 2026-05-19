@@ -1,32 +1,73 @@
-version: '3.9'
-
 services:
+
   djangoapp:
-    build: .
-    command: ./entrypoint.sh
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: djangoapp
+
+    command: gunicorn dossie_caixa.wsgi:application --bind 0.0.0.0:8000
+
+    ports:
+      - "8000:8000"
+
     volumes:
       - ./djangoapp:/djangoapp
-      - ./data/web/static:/data/web/static
-      - ./data/web/media:/data/web/media
+      - static_volume:/data/web/static
+
     env_file:
       - ./dotenv_files/.env
+
     depends_on:
       - psql
 
+    networks:
+      - backend
+
   psql:
-    image: postgres:16-alpine
+    image: postgres:16
+
+    container_name: psql
+
+    restart: always
+
+    environment:
+      POSTGRES_DB: dossie_caixa
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: dossie2026
+
     volumes:
-      - ./data/postgres/data:/var/lib/postgresql/data
-    env_file:
-      - ./dotenv_files/.env
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - backend
 
   nginx:
-    image: nginx:alpine
+    image: nginx:1.29
+
+    container_name: nginx
+
+    restart: always
+
     ports:
       - "80:80"
+
     volumes:
-      - ./data/web/static:/data/web/static
-      - ./data/web/media:/data/web/media
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/data/web/static
+
     depends_on:
       - djangoapp
+
+    networks:
+      - backend
+      - frontend
+
+volumes:
+  postgres_data:
+  static_volume:
+
+networks:
+  backend:
+  frontend:
