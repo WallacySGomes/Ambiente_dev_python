@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dossiê</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/popup-home-pesquisar.css' %}">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <nav class="navbar">
+
+            <a href="{% url 'home' %}" class="logo">
+                Dossiê CEMOT NOC
+            </a>
+
+            <ul class="menu-links">
+
+                <li>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                       target="_blank">
+                        Retornar ao Turno Fácil
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero-section">
+
+        <div class="content">
+
+            <h1>Lorem ipsum dolor sit amet</h1>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce sagittis ante eu odio sollicitudin.
+            </p>
+
+            <div class="content-button">
+
+                <button id="open-popup">
+                    Pesquisar
+                </button>
+
+                <a href="{% url 'login' %}">
+                    <button type="button">
+                        Cadastrar
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- POPUP -->
+    <div class="popup" id="popup">
+
+        <div class="overlay"></div>
+
+        <div class="popup-content">
+
+            <h2>Pesquisar</h2>
+
+            <p>Sistema, Mês, Task ou WO/TAS:</p>
+
+            <form>
+
+                <div class="search">
+
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+
+                    <input
+                        class="search-input"
+                        type="search"
+                        placeholder="Ex: Outubro, SIIAC..."
+                    >
+
+                </div>
+
+            </form>
+
+            <div class="controls">
+
+                <button class="close-btn">
+                    Sair
+                </button>
+
+                <button class="submit-btn">
+                    Confirmar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JS -->
+    <script src="{% static 'home/js/popup-home-pesquisar-js.js' %}"></script>
+
+</body>
+
+</html>

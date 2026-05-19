@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+
+body{
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
+
+    background-image: url("../imagens/coffee-hero-bg-terra-version.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 20px 40px;
+
+    z-index: 1000;
+}
+
+/* NAVBAR */
+
+.navbar{
+    max-width: 1700px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+
+.logo{
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 2rem;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.logo:hover{
+    color: #ff3b3b;
+}
+
+/* MENU */
+
+.menu-links{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    list-style: none;
+}
+
+.menu-links a{
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.menu-links a:hover{
+    color: #ff3b3b;
+}
+
+/* HERO SECTION */
+
+.hero-section{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 40px;
+}
+
+/* CONTENT */
+
+.content{
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    color: #ffffff;
+}
+
+/* TITLE */
+
+.content h1{
+    max-width: 800px;
+
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+/* TEXT */
+
+.content p{
+    max-width: 750px;
+
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+/* BUTTON AREA */
+
+.content-button{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* BUTTONS */
+
+.content-button button{
+    padding: 14px 35px;
+
+    border: none;
+    border-radius: 8px;
+    outline: none;
+
+    background: #ffffff;
+    color: #000000;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.content-button button:hover{
+    background: #ff3b3b;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+/* POPUP */
+
+.popup{
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2000;
+}
+
+/* POPUP ACTIVE */
+
+.popup.active{
+    display: flex;
+}
+
+/* OVERLAY */
+
+.popup .overlay{
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    backdrop-filter: blur(4px);
+}
+
+/* POPUP CONTENT */
+
+.popup-content{
+    position: relative;
+
+    width: 90%;
+    max-width: 500px;
+
+    background: #ffffff;
+    color: #111111;
+
+    padding: 35px;
+
+    border-radius: 16px;
+
+    z-index: 1;
+
+    animation: popupAnimation 0.3s ease;
+}
+
+/* POPUP TITLE */
+
+.popup-content h2{
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* POPUP TEXT */
+
+.popup-content p{
+    margin-bottom: 20px;
+
+    color: #444444;
+    font-weight: 500;
+}
+
+/* SEARCH */
+
+.search{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 18px;
+
+    background: #f1f1f1;
+
+    border-radius: 10px;
+}
+
+/* SEARCH ICON */
+
+.search span{
+    color: #555555;
+}
+
+/* INPUT */
+
+.search-input{
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 1rem;
+}
+
+/* POPUP BUTTONS */
+
+.controls{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+/* CONTROL BUTTONS */
+
+.controls button{
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+    background: #e5e5e5;
+    color: #111111;
+}
+
+.close-btn:hover{
+    background: #cfcfcf;
+}
+
+/* SUBMIT BUTTON */
+
+.submit-btn{
+    background: #ff3b3b;
+    color: #ffffff;
+}
+
+.submit-btn:hover{
+    background: #d62828;
+}
+
+/* ANIMATION */
+
+@keyframes popupAnimation{
+    from{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 900px){
+
+    header{
+        padding: 20px;
+    }
+
+    .navbar{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .menu-links{
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .content h1{
+        font-size: 2.8rem;
+    }
+
+    .content p{
+        font-size: 0.95rem;
+    }
+
+    .content-button{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .content-button button{
+        width: 100%;
+    }
+
+    .popup-content{
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 500px){
+
+    .content h1{
+        font-size: 2.2rem;
+    }
+
+    .popup-content h2{
+        font-size: 1.6rem;
+    }
+
+    .controls{
+        flex-direction: column;
+    }
+
+    .controls button{
+        width: 100%;
+    }
+}
