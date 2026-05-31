@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("/imagens/coffee-hero-bg-terra-version-login.png") no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+header .navbar {
+    display: flex;
+    align-items:start;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .logo {
+    color: #000000;
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.navbar .menu-links {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+}
+
+.navbar a {
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    transition: 0.2s ease;
+
+}
+
+.navbar a:hover {
+    color: #ff3b3b;
+}
+
+.wrapper {
+    width: 650px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 3px 3px 10px 10px rgba(0,0,0,0.30);
+    color: #fff;
+    border-radius: 10px;
+    padding: 60px 40px;
+}
+
+.wrapper h1 {
+    color: #000;
+    font-size: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    margin-bottom: 50px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 3px solid rgba(53, 53, 53, 0.479);
+    border-radius: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    color: #313131;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    font-weight: 600;
+
+}
+
+.input-box i {
+    color: rgba(53, 53, 53, 0.479);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+}
+
+.wrapper .btn-login {
+    margin-top: 20px;
+    width: 100%;
+    height: 90px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 30px;
+    color: #333;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.wrapper .btn-login:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.wrapper .register-message {
+    text-align: center;
+    font-size: 14.5px;
+    margin: 20px 0;
+}
+
+.register-message p {
+    color: #fff;
+    font-weight: 600;
+}
+
+.adm {
+    color: #ff3b3b;
+}
