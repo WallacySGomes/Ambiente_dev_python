@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: url("../imagens/coffee-hero-bg-terra-version-cadastro.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+header .navbar {
+    display: flex;
+    align-items:start;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .logo {
+    color: #ffffff;
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.navbar .menu-links {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+}
+
+.navbar a {
+    font-weight: 600;
+    text-shadow: 1px 15px 10px rgba(16, 16, 16, 0.3);
+    text-shadow: 1px 20px 20px rgba(16, 16, 16, 0.2);
+    text-shadow: 1px 25px 40px rgba(16, 16, 16, 0.2);
+    text-shadow: 1px 30px 80px rgba(16, 16, 16, 0.3);
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s ease;
+
+}
+
+.navbar a:hover {
+    color: #ff3b3b;
+}
+
+.glass-container {
+    color: #fff;
+    height: 520px;
+    width: 1000px;
+    padding: 30px 50px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.027);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 3px 10px 10px rgba(0,0,0,0.30);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 185%;
+}
+
+.glass-container h1 {
+    margin-bottom: 20px;
+}
